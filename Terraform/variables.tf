@@ -25,3 +25,4 @@ variable "instance_count" {
 variable "username" {
   description = "Username for SSH connections"
 }
+

@@ -13,6 +13,14 @@ resource "aws_subnet" "cka-subnet" {
   }
 }
 
+resource "aws_internet_gateway" "cka-igw" {
+  vpc_id = aws_vpc.ck-vpc.id
+
+  tags = {
+    Name = "cka-igw"
+  }
+}
+
 resource "aws_route_table" "cka-rt" {
   vpc_id = aws_vpc.cka-vpc.id
 
