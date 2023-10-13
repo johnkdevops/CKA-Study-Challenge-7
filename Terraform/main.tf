@@ -28,10 +28,10 @@ resource "aws_instance" "controlplane" {
 # Worker Node
 resource "aws_instance" "workernode" {
   count         = 1
-  ami           = data.aws_ami.ubuntu.id
+  ami           = data.aws_ami.amazon.id
   instance_type = var.instance_type
-  subnet_id     = aws_subnet.my_subnet.id
-  vpc_security_group_ids = [aws_security_group.my_sg.id]
+  subnet_id     = aws_subnet.cka-subnet.id
+  vpc_security_group_ids = [aws_security_group.cka-sg.id]
   key_name      = var.key_name
   
   tags = {
@@ -56,8 +56,8 @@ resource "aws_instance" "loadbalancer" {
   count         = 1
   ami           = data.aws_ami.amazon.id
   instance_type = var.instance_type
-  subnet_id     = aws_subnet.my_subnet.id
-  vpc_security_group_ids = [aws_security_group.my_sg.id]
+  subnet_id     = aws_subnet.cka-subnet.id
+  vpc_security_group_ids = [aws_security_group.cka-sg.id]
   key_name      = var.key_name
   
   tags = {
